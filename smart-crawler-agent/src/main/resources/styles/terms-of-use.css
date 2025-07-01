@@ -1,0 +1,54 @@
+/* Conteneur principal */
+.terms-container {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #f0f0f0);
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-padding: 25px;
+    -fx-alignment: center;
+}
+
+/* Titre */
+.terms-title {
+    -fx-font-family: "Helvetica", sans-serif;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #222222;
+    -fx-padding: 0 0 15px 0;
+}
+
+/* Zone de texte des conditions */
+.terms-text {
+    -fx-font-family: "Helvetica", sans-serif;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 4px;
+    -fx-padding: 10px;
+}
+
+/* Case à cocher */
+.terms-checkbox {
+    -fx-font-family: "Helvetica", sans-serif;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+    -fx-padding: 10px 0;
+}
+
+/* Bouton d'acceptation */
+.terms-accept-button {
+    -fx-background-color: #0078d4;
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Helvetica", sans-serif;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 25px;
+    -fx-border-radius: 6px;
+    -fx-cursor: hand;
+}
+
+/* Effet de survol pour le bouton */
+.terms-accept-button:hover {
+    -fx-background-color: #005ea2;
+}

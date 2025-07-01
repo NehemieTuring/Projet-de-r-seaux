@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="root"
+           xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.smartcrawler.ui.MainController">
+
+    <!-- Interface principale -->
+    <VBox fx:id="rootContainer" spacing="20" alignment="CENTER">
+        <!-- TITRE -->
+        <Label text="🚀 Smart Crawler" styleClass="app-title"/>
+        <Separator/>
+
+        <!-- Menu pour accéder au profil -->
+        <HBox spacing="10" alignment="TOP_RIGHT">
+            <Button fx:id="profileButton" text="Profil" onAction="#showProfile" styleClass="btn-profile"/>
+        </HBox>
+
+        <!-- SECTION URL INPUT -->
+        <HBox fx:id="urlInputBox" spacing="10" styleClass="url-input" alignment="CENTER">
+            <Label text="🌐 Base URL :" />
+            <TextField fx:id="urlField"
+                       promptText="https://example.com"
+                       styleClass="input-field"/>
+            <Button fx:id="addUrlButton" text="➕ Ajouter" onAction="#addUrl" styleClass="btn-add"/>
+            <Button fx:id="removeUrlButton" text="🗑 Supprimer" onAction="#removeUrl" styleClass="btn-remove"/>
+        </HBox>
+
+        <!-- SECTION LISTE -->
+        <VBox spacing="5" styleClass="list-section">
+            <Label text="📜 URLs à crawler" styleClass="section-title"/>
+            <ListView fx:id="urlListView" styleClass="list-view" onContextMenuRequested="#showContextMenu"/>
+        </VBox>
+
+        <!-- SECTION HISTORIQUE -->
+        <VBox spacing="5" styleClass="history-section">
+            <Label text="🕓 Historique des requêtes" styleClass="section-title"/>
+            <TableView fx:id="historyTable" styleClass="table-view">
+                <columns>
+                    <TableColumn fx:id="urlColumn" text="URL" styleClass="column-url"/>
+                    <TableColumn fx:id="statusColumn" text="Statut" styleClass="column-status"/>
+                    <TableColumn fx:id="timestampColumn" text="Horodatage" styleClass="column-timestamp"/>
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- SECTION CONTROLES -->
+        <HBox fx:id="controlBox" spacing="15" styleClass="control-panel" alignment="CENTER">
+            <Button fx:id="startButton" text="▶ Démarrer" onAction="#startService" styleClass="btn-start"/>
+            <Button fx:id="stopButton" text="⏹ Arrêter" onAction="#stopService" styleClass="btn-stop"/>
+            <Label fx:id="statusLabel" text="⛔ Inactif" styleClass="status-label"/>
+            <ProgressIndicator fx:id="progressIndicator" styleClass="progress-indicator" visible="false"/>
+        </HBox>
+    </VBox>
+</StackPane>

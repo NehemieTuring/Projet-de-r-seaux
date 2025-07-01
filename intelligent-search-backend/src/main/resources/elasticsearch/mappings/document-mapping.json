@@ -1,0 +1,26 @@
+{
+  "mappings": {
+    "properties": {
+      "url": { "type": "keyword" },
+      "title": { "type": "text", "analyzer": "standard" },
+      "content": { "type": "text", "analyzer": "standard" },
+      "description": { "type": "text", "analyzer": "standard" },
+      "documentType": { "type": "keyword" },
+      "links": { "type": "keyword" },
+      "mediaUrls": { "type": "keyword" },
+      "apiEndpoints": { "type": "object" },
+      "isDynamic": { "type": "boolean" },
+      "crawlTimestamp": { "type": "date" },
+      "httpStatus": { "type": "integer" },
+      "metadata": {
+        "properties": {
+          "source": { "type": "keyword" },
+          "language": { "type": "keyword" },
+          "latitude": { "type": "keyword" },
+          "longitude": { "type": "keyword" },
+          "popularity": { "type": "keyword" }
+        }
+      }
+    }
+  }
+}

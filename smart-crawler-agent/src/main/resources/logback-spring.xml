@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <springProperty name="logging.level" source="logging.level" defaultValue="INFO"/>
+    <springProperty name="logging.file.path" source="logging.file.path" defaultValue="logs/crawler.log"/>
+    <springProperty name="logging.max.file.size" source="logging.max.file.size" defaultValue="50MB"/>
+    <springProperty name="logging.max.history" source="logging.max.history" defaultValue="30"/>
+    <springProperty name="logging.json.format" source="logging.json.format" defaultValue="true"/>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logging.file.path}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${logging.file.path}.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>${logging.max.file.size}</maxFileSize>
+            <maxHistory>${logging.max.history}</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="${logging.level}">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>

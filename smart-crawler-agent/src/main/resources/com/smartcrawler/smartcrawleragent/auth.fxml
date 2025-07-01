@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="root"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.smartcrawler.ui.AuthController"
+      spacing="10" alignment="CENTER">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Menu -->
+    <MenuBar fx:id="menuBar">
+        <Menu text="Navigation">
+            <MenuItem fx:id="registerMenuItem" text="Inscription" onAction="#showRegisterTab"/>
+            <MenuItem fx:id="loginMenuItem" text="Connexion" onAction="#showLoginTab"/>
+            <MenuItem fx:id="profileMenuItem" text="Profil" onAction="#showProfileTab"/>
+            <MenuItem fx:id="logoutMenuItem" text="Déconnexion" onAction="#handleLogout"/>
+        </Menu>
+    </MenuBar>
+
+    <!-- TabPane -->
+    <TabPane fx:id="authTabPane" styleClass="tab-pane">
+        <!-- Inscription -->
+        <Tab fx:id="registerTab" text="Inscription" closable="false">
+            <VBox spacing="10" alignment="CENTER">
+                <Text text="Créer un compte" styleClass="section-title"/>
+
+                <TextField fx:id="registerOrganizationField" promptText="Nom de l'organisation" accessibleText="Nom de l'organisation">
+                    <tooltip>
+                        <Tooltip text="Entrez le nom de votre organisation"/>
+                    </tooltip>
+                </TextField>
+
+                <TextField fx:id="registerEmailField" promptText="Email du contact technique" accessibleText="Email du contact technique">
+                    <tooltip>
+                        <Tooltip text="Entrez un email valide"/>
+                    </tooltip>
+                </TextField>
+
+                <TextField fx:id="registerContactNameField" promptText="Nom du contact technique" accessibleText="Nom du contact technique">
+                    <tooltip>
+                        <Tooltip text="Entrez le nom du responsable technique"/>
+                    </tooltip>
+                </TextField>
+
+                <PasswordField fx:id="registerPasswordField" promptText="Mot de passe" accessibleText="Mot de passe">
+                    <tooltip>
+                        <Tooltip text="Minimum 8 caractères, incluant lettres, chiffres, caractères spéciaux"/>
+                    </tooltip>
+                </PasswordField>
+
+                <PasswordField fx:id="registerConfirmPasswordField" promptText="Confirmer le mot de passe" accessibleText="Confirmer le mot de passe"/>
+
+                <TextField fx:id="registerSecretPhraseField" promptText="Phrase secrète" accessibleText="Phrase secrète">
+                    <tooltip>
+                        <Tooltip text="Phrase pour réinitialiser le mot de passe"/>
+                    </tooltip>
+                </TextField>
+
+                <TextField fx:id="registerHintField" promptText="Indice pour la phrase secrète" accessibleText="Indice pour la phrase secrète">
+                    <tooltip>
+                        <Tooltip text="Indice pour vous rappeler la phrase"/>
+                    </tooltip>
+                </TextField>
+
+                <Button fx:id="registerButton" text="S'inscrire" onAction="#handleRegister" styleClass="btn-auth"/>
+                <Label fx:id="registerResultLabel" text="" styleClass="result-label"/>
+            </VBox>
+        </Tab>
+
+        <!-- Connexion -->
+        <Tab fx:id="loginTab" text="Connexion" closable="false">
+            <VBox spacing="10" alignment="CENTER">
+                <Text text="Se connecter" styleClass="section-title"/>
+
+                <TextField fx:id="loginOrganizationField" promptText="Nom de l'organisation" accessibleText="Nom de l'organisation"/>
+                <TextField fx:id="loginEmailField" promptText="Email du contact technique" accessibleText="Email du contact technique"/>
+                <PasswordField fx:id="loginPasswordField" promptText="Mot de passe" accessibleText="Mot de passe"/>
+                <Button fx:id="loginButton" text="Se connecter" onAction="#handleLogin" styleClass="btn-auth"/>
+                <Label fx:id="loginResultLabel" text="" styleClass="result-label"/>
+                <Hyperlink fx:id="forgotPasswordLink" text="Mot de passe oublié ?" onAction="#showForgotPassword"/>
+
+                <VBox fx:id="forgotPasswordPane" spacing="10" visible="false" managed="false">
+                    <TextField fx:id="forgotOrganizationField" promptText="Nom de l'organisation" accessibleText="Nom de l'organisation"/>
+                    <TextField fx:id="forgotEmailField" promptText="Email du contact technique" accessibleText="Email du contact technique"/>
+                    <Label fx:id="hintLabel" text="Indice: (saisissez l'organisation et l'email pour voir l'indice)" styleClass="hint-label"/>
+                    <TextField fx:id="secretPhraseField" promptText="Phrase secrète" accessibleText="Phrase secrète"/>
+                    <Button fx:id="verifySecretPhraseButton" text="Vérifier" onAction="#verifySecretPhrase" styleClass="btn-auth"/>
+                    <PasswordField fx:id="newPasswordField" promptText="Nouveau mot de passe" accessibleText="Nouveau mot de passe" visible="false" managed="false"/>
+                    <PasswordField fx:id="confirmNewPasswordField" promptText="Confirmer le nouveau mot de passe" accessibleText="Confirmer le nouveau mot de passe" visible="false" managed="false"/>
+                    <Button fx:id="resetPasswordButton" text="Réinitialiser" onAction="#handleResetPassword" styleClass="btn-auth" visible="false" managed="false"/>
+                    <Label fx:id="forgotResultLabel" text="" styleClass="result-label"/>
+                </VBox>
+            </VBox>
+        </Tab>
+
+        <!-- Profil -->
+        <Tab fx:id="profileTab" text="Profil" closable="false">
+            <VBox spacing="10" alignment="CENTER">
+                <Text text="Profil utilisateur" styleClass="section-title"/>
+                <Label fx:id="profileOrganizationLabel" text="Organisation: " styleClass="profile-label"/>
+                <Label fx:id="profileEmailLabel" text="Email: " styleClass="profile-label"/>
+                <Label fx:id="profileContactNameLabel" text="Nom du contact: " styleClass="profile-label"/>
+
+                <Text text="Modifier les informations" styleClass="section-title"/>
+                <TextField fx:id="updateEmailField" promptText="Nouvel email" accessibleText="Nouvel email"/>
+                <TextField fx:id="updateContactNameField" promptText="Nouveau nom du contact" accessibleText="Nouveau nom du contact"/>
+                <TextField fx:id="updateOrganizationField" promptText="Nouvelle organisation" accessibleText="Nouvelle organisation"/>
+                <PasswordField fx:id="updateInfoPasswordField" promptText="Mot de passe actuel" accessibleText="Mot de passe actuel"/>
+                <Button fx:id="updateInfoButton" text="Mettre à jour" onAction="#handleUpdateInfo" styleClass="btn-auth"/>
+
+                <Text text="Modifier le mot de passe" styleClass="section-title"/>
+                <PasswordField fx:id="oldPasswordField" promptText="Ancien mot de passe" accessibleText="Ancien mot de passe"/>
+                <PasswordField fx:id="newProfilePasswordField" promptText="Nouveau mot de passe" accessibleText="Nouveau mot de passe"/>
+                <PasswordField fx:id="confirmProfilePasswordField" promptText="Confirmer le nouveau mot de passe" accessibleText="Confirmer le nouveau mot de passe"/>
+                <Button fx:id="updatePasswordButton" text="Mettre à jour" onAction="#handleUpdatePassword" styleClass="btn-auth"/>
+
+                <Text fx:id="deleteAccountTitle" text="Supprimer le compte" styleClass="section-title"/>
+                <PasswordField fx:id="deletePasswordField" promptText="Mot de passe actuel" accessibleText="Mot de passe actuel pour suppression"/>
+                <Button fx:id="deleteAccountButton" text="Supprimer le compte" onAction="#handleDeleteAccount" styleClass="btn-delete"/>
+                <Label fx:id="profileResultLabel" text="" styleClass="result-label"/>
+            </VBox>
+        </Tab>
+    </TabPane>
+</VBox>

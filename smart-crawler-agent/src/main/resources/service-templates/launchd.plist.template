@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.smartcrawler.agent</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/java</string>
+        <string>-jar</string>
+        <string>{{jarPath}}</string>
+        <string>--service</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>WorkingDirectory</key>
+    <string>/usr/local/bin</string>
+    <key>StandardOutPath</key>
+    <string>/var/log/smart-crawler-agent.log</string>
+    <key>StandardErrorPath</key>
+    <string>/var/log/smart-crawler-agent.log</string>
+</dict>
+</plist>

@@ -1,0 +1,43 @@
+.tab-pane {
+    -fx-padding: 10px;
+}
+.result-label {
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+}
+.hint-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: gray;
+}
+.profile-label {
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+}
+.btn-auth {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-padding: 5px 15px;
+}
+.btn-auth:hover {
+    -fx-background-color: #45a049;
+}
+.btn-delete {
+    -fx-background-color: #f44336;
+    -fx-text-fill: white;
+    -fx-padding: 5px 15px;
+}
+.btn-delete:hover {
+    -fx-background-color: #d32f2f;
+}
+.btn-profile {
+    -fx-background-color: #2196f3;
+    -fx-text-fill: white;
+    -fx-padding: 5px 10px;
+}
+.btn-profile:hover {
+    -fx-background-color: #1976d2;
+}
+.section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}

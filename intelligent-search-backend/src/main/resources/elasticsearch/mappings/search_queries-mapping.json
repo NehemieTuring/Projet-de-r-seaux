@@ -1,0 +1,11 @@
+{
+  "mappings": {
+    "properties": {
+      "queryId": { "type": "keyword" },
+      "query": { "type": "text" },
+      "sessionId": { "type": "keyword" },
+      "timestamp": { "type": "date" },
+      "searchType": { "type": "keyword" }
+    }
+  }
+}

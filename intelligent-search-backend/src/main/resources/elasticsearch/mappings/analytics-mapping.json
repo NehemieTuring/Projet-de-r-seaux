@@ -1,0 +1,19 @@
+{
+  "mappings": {
+    "properties": {
+      "analyticsId": { "type": "keyword" },
+      "query": { "type": "text", "analyzer": "standard" },
+      "resultCount": { "type": "integer" },
+      "sessionId": { "type": "keyword" },
+      "timestamp": { "type": "date" },
+      "actionType": { "type": "keyword" },
+      "metadata": {
+        "properties": {
+          "ipAddress": { "type": "keyword" },
+          "userAgent": { "type": "text" },
+          "status": { "type": "keyword" }
+        }
+      }
+    }
+  }
+}

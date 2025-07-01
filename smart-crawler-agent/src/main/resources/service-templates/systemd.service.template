@@ -1,0 +1,16 @@
+# Modèle pour le fichier unit systemd du Smart Crawler Agent
+[Unit]
+Description=Smart Crawler Agent Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/java -jar {{jarPath}} --service
+Restart=always
+User=nobody
+Group=nogroup
+Environment=PATH=/usr/bin:/usr/local/bin
+WorkingDirectory=/usr/local/bin
+SuccessExitStatus=0
+
+[Install]
+WantedBy=multi-user.target

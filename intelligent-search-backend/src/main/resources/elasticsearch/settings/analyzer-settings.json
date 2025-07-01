@@ -1,0 +1,23 @@
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "custom_analyzer": {
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": [
+            "lowercase",
+            "stop",
+            "snowstem"
+          ]
+        }
+      },
+      "filter": {
+        "snowstem": {
+          "type": "snowball",
+          "language": "English"
+        }
+      }
+    }
+  }
+}

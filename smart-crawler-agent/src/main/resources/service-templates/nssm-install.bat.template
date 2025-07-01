@@ -1,0 +1,6 @@
+@echo off
+:: Modèle pour l'installation du service Smart Crawler Agent avec NSSM
+nssm.exe install SmartCrawlerAgent "java" "-jar {{jarPath}} --service"
+nssm.exe set SmartCrawlerAgent Description "Smart Crawler Agent Service"
+nssm.exe set SmartCrawlerAgent Start SERVICE_AUTO_START
+nssm.exe start SmartCrawlerAgent

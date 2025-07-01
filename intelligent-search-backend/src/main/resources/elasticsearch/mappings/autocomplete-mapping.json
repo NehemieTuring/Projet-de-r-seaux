@@ -1,0 +1,9 @@
+{
+  "mappings": {
+    "properties": {
+      "suggestion": {
+        "type": "completion"
+      }
+    }
+  }
+}
